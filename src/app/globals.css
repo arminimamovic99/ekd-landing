@@ -9,6 +9,15 @@
 @custom-variant dark (&:is(.dark *));
 
 @theme {
+  --animate-flyAway: fly 0.5s ease-in-out;
+  @keyframes fly {
+    0% {
+      transform: translateY(0) translateX(0)
+    }
+    100% {
+      transform: translateY(-500px) translateX(500px)
+    }
+  }
   --animate-wiggle: wiggle 0.5s ease-in-out infinite;
   @keyframes wiggle {
     0%,

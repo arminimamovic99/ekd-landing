@@ -4,15 +4,25 @@ import { Button } from '@/components/ui/button'
 import { Card, CardContent } from '@/components/ui/card'
 import { motion } from 'framer-motion'
 import { PhoneCall, BarChart3, Users, Rocket, Menu } from 'lucide-react'
+import { useState } from 'react'
 
-// Brand palette (new)
-// indigo-dye: #08415c
-// persian-red: #cc2936
-// slate-gray: #6b818c
-// peach: #f1bf98
-// lavender-blush: #eee5e9
 
 export default function Home() {
+  const [isAnimating, setIsAnimating] = useState(false)
+
+
+  const playAnimationAndRedirect = () => {
+    setIsAnimating(true);
+
+    setTimeout(() => {
+      window.open('https://calendly.com', '_blank');
+      setIsAnimating(false);
+    }, 500);
+  }
+
+  const redirect = () => {
+    window.open('https://calendly.com', '_blank');
+  }
   return (
     <>
       <Head>
@@ -35,11 +45,11 @@ export default function Home() {
         {/* Hero Section */}
         <section className="flex flex-col items-center justify-center text-center pt-32 px-6 py-12 h-[550px] text-shadow-lg bg-[#141f1e] text-[#bbd4cc]">
         
-        <div className="absolute -top-28 -left-28 w-[500px] h-[500px] rounded-full bg-[#6a978c] opacity-30 blur-3xl animate-float1"></div>
-        <div className="absolute top-150 left-90 w-[500px] h-[500px] -skew-10 rounded-xl bg-[#6a978c] opacity-30 blur-3xl animate-float2"></div>
-        <div className="absolute -bottom-10 right-25 w-[600px] h-[600px] rounded-full bg-[#6a978c] opacity-20 blur-3xl animate-float1"></div>
-        <div className="absolute top-30 right-40 w-[500px] h-[500px] rounded-xl skew-20 bg-[#6a978c] opacity-20 blur-3xl animate-float2"></div>
-        <div className="absolute -bottom-20 left-50 w-[600px] h-[600px] rounded-full bg-[#6a978c] opacity-20 blur-3xl animate-float2"></div>
+        <div className="absolute -top-28 -left-28 w-[500px] h-[500px] rounded-full bg-[#6a978c] opacity-30 blur-3xl animate-float1 z-1 pointer-events-none"></div>
+        <div className="absolute top-150 left-90 w-[500px] h-[500px] -skew-10 rounded-xl bg-[#6a978c] opacity-30 blur-3xl animate-float2 z-1 pointer-events-none"></div>
+        <div className="absolute -bottom-10 right-25 w-[600px] h-[600px] rounded-full bg-[#6a978c] opacity-20 blur-3xl animate-float1 z-1 pointer-events-none"></div>
+        <div className="absolute top-30 right-40 w-[500px] h-[500px] rounded-xl skew-20 bg-[#6a978c] opacity-20 blur-3xl animate-float2 z-1 pointer-events-none"></div>
+        <div className="absolute -bottom-20 left-50 w-[600px] h-[600px] rounded-full bg-[#6a978c] opacity-20 blur-3xl animate-float2 z-1 pointer-events-none"></div>
 
           <div className="mx-auto max-w-2xl text-center">
             <motion.h1
@@ -60,7 +70,7 @@ export default function Home() {
               Ihr verlässlicher partner für support, assistenz und datenverarbeitung im backoffice
             </motion.p>
 
-            <Button className="bg-[#bbd4cc] text-[#35504b] hover:bg-[#8ab2a7] hover:text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-full px-6 py-3 text-xl font-semibold cursor-pointer shadow-xl">
+            <Button onClick={redirect} className="bg-[#bbd4cc] text-[#35504b] hover:bg-[#8ab2a7] hover:text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-full px-6 py-3 text-xl font-semibold cursor-pointer shadow-xl">
               Jetzt kostenlos beraten lassen
             </Button>
           </div>
@@ -126,10 +136,10 @@ export default function Home() {
 
         {/* CTA Banner */}
         <section className="py-16 text-center bg-[#141f1e] text-white">
-          <Rocket className="w-12 h-12 mx-auto mb-4 text-[#bbd4cc] animate-wiggle" />
+          <Rocket className={`w-12 h-12 mx-auto mb-4 text-[#bbd4cc] ${isAnimating ? 'animate-flyAway' : 'animate-wiggle'}`} />
           <h2 className="text-3xl font-semibold mb-4 text-[#8ab2a7]">Bereit, Ihre <span className="text-white">Marke</span> auf das nächste <span className="text-white">Level</span> zu bringen?</h2>
           <p className="mb-6 text-lg text-white/90">Lassen Sie uns Kundenloyalität stärken, Conversions steigern und Ihre Marketingwirkung skalieren.</p>
-          <Button className="bg-[#bbd4cc] text-[#35504b] hover:bg-[#8ab2a7] hover:text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-full px-6 py-3 text-xl font-semibold cursor-pointer shadow-xl">
+          <Button onClick={playAnimationAndRedirect} className="z-50 bg-[#bbd4cc] text-[#35504b] hover:bg-[#8ab2a7] hover:text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-full px-6 py-3 text-xl font-semibold cursor-pointer shadow-xl">
           Jetzt ein Gespräch vereinbaren
           </Button>
         </section>
