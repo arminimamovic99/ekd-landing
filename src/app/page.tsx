@@ -68,8 +68,8 @@ export default function Home() {
 
         {/* Services Section */}
         <section className="py-20 px-6 bg-[#141f1e] text-center">
-          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-white">
-            Unsere <span className='text-[#8ab2a7]'>Kernleistungen</span>
+          <h2 className="text-3xl md:text-4xl font-bold mb-12 text-[#8ab2a7]">
+            Unsere <span className='text-white'>Kernleistungen</span>
           </h2>
 
           <div className="grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
@@ -126,8 +126,8 @@ export default function Home() {
 
         {/* CTA Banner */}
         <section className="py-16 text-center bg-[#141f1e] text-white">
-          <Rocket className="w-12 h-12 mx-auto mb-4 text-[#bbd4cc]" />
-          <h2 className="text-3xl font-semibold mb-4">Bereit, Ihre Marke auf das nächste Level zu bringen?</h2>
+          <Rocket className="w-12 h-12 mx-auto mb-4 text-[#bbd4cc] animate-wiggle" />
+          <h2 className="text-3xl font-semibold mb-4 text-[#8ab2a7]">Bereit, Ihre <span className="text-white">Marke</span> auf das nächste <span className="text-white">Level</span> zu bringen?</h2>
           <p className="mb-6 text-lg text-white/90">Lassen Sie uns Kundenloyalität stärken, Conversions steigern und Ihre Marketingwirkung skalieren.</p>
           <Button className="bg-[#bbd4cc] text-[#35504b] hover:bg-[#8ab2a7] hover:text-white transition delay-150 duration-300 ease-in-out hover:-translate-y-1 hover:scale-110 rounded-full px-6 py-3 text-xl font-semibold cursor-pointer shadow-xl">
           Jetzt ein Gespräch vereinbaren
